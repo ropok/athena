@@ -1,6 +1,6 @@
 0. cobaKopet
 1. deadZoneMotor
-2. sensorSensing
+2. sensorSensing (+threshold-ing)
 3. majuPID
-4. LCD
-5. Mapping
+4. lcdMenu
+5. mapping
