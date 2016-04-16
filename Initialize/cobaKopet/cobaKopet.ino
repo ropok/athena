@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* testing motor
   looping : forward - backward - right - left - stop
 
@@ -13,6 +14,23 @@ void setup() {
   Serial.begin(9600);
 
   // Setup motors
+=======
+/* Program pertama untuk uji coba LF
+  looping : forward - backward - left - right - stop
+  with - : delay
+*/
+
+/* Motor */
+int motor_left[] = {11, 10};
+int motor_right[] = {12, 13};
+int i;
+
+/* Initialize - Setup */
+void setup() {
+  Serial.begin(9600);
+
+  //Setup Motor
+>>>>>>> dev-jalerse
   for (i = 0; i < 2; i++) {
     pinMode(motor_left[i], OUTPUT);
     pinMode(motor_right[i], OUTPUT);
@@ -20,7 +38,11 @@ void setup() {
 
 }
 
+<<<<<<< HEAD
 /* loop */
+=======
+/* Looping begin */
+>>>>>>> dev-jalerse
 void loop() {
 
   drive_forward();
@@ -44,13 +66,22 @@ void loop() {
   Serial.println("4");
 
   motor_stop();
+<<<<<<< HEAD
   delay(1000);
+=======
+  delay(1000 );
+>>>>>>> dev-jalerse
   motor_stop();
   Serial.println("5");
 }
 
+<<<<<<< HEAD
 
 /* fungsi */
+=======
+/* Void stop, forward, backward, left, right */
+
+>>>>>>> dev-jalerse
 void motor_stop() {
   digitalWrite(motor_left[0], LOW);
   digitalWrite(motor_left[1], LOW);

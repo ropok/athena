@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* deadZoneMotor test
 */
 int pwmKiri[2];
@@ -6,6 +7,18 @@ char chrMsk;
 int i;
 int motorKiri[] = {11, 10}; //11 maju, 10 mundur
 int motorKanan[] = {12, 13}; //12 maju, 13 mundur
+=======
+/*Deadzone motor
+  Cek deadzone motor, biasanya pwm=20
+*/
+
+int pwmKiri[2];
+int pwmKanan[2];
+char chrMsk;
+int motorKiri[] = {11, 10}; //11 maju, 10 mundur
+int motorKanan[] = {12, 13}; //12 maju, 13 mundur
+int i;
+>>>>>>> dev-jalerse
 
 void setup()
 {
@@ -41,6 +54,9 @@ void loop() {
   analogWrite(motorKiri[1], pwmKiri[1]);
   analogWrite(motorKanan[0], pwmKanan[0]);
   analogWrite(motorKanan[1], pwmKanan[1]);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> dev-jalerse
 }

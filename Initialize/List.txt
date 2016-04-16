@@ -1,6 +1,10 @@
 0. cobaKopet
 1. deadZoneMotor
 2. sensorSensing (+threshold-ing)
+<<<<<<< HEAD
 3. majuPID
+=======
+3. pid
+>>>>>>> dev-jalerse
 4. lcdMenu
 5. mapping
