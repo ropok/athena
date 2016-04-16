@@ -1,11 +1,16 @@
-/* PID
-  maju PID, test track lurus
-
+/* majuPID
+ *    Sensor
+ *  /T1\__________---_________/T2\
+ *  |S1A  pid[0 1 2 3 4 5 6 7] S2A|
+ *  |                             |
+ *  |                             |
+ *  |S1           TE           S2B|
 */
 
-int sensPinsPID[8] = {A8, A7, A6, A5, A4, A3, A2, A0};
 int readings[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-int threshold, i;
+int sensPinsPID[8] = {A8, A7, A6, A5, A4, A3, A2, A0};
+int threshold, i ;
+
 /* PID */
 int deltaE, errorDulu, error, sensor;
 int setPoint = 0;
@@ -20,12 +25,13 @@ int pwmKanan[2];
 int motorKiri[] = {11, 10}; //11 maju, 10 mundur
 int motorKanan[] = {12, 13}; //12 maju, 13 mundur
 int kecepatan = 85;
+int kecepatanBelok = 100;
+int rem = 50;
 int pwm1, pwm2, selisihPwm1, selisihPwm2;
 /* Motor */
 
 
 void setup() {
-
   /* PID set awal */
   Kp = 1.2;
   Ki = 0;
@@ -33,9 +39,8 @@ void setup() {
   /* PID set awal */
 
   /********** Init Sensor **********/
-  for ( i = 0; i < 8; i++) {
+  for ( i = 0; i < 8; i++)
     pinMode(sensPinsPID[i], INPUT);
-  }
   /********** Init Sensor **********/
 
   /********** Init Motor **********/
@@ -44,7 +49,6 @@ void setup() {
     pinMode(motorKanan[i], OUTPUT);
   }
   /********** Init Motor **********/
-
 }
 
 void loop() {
@@ -63,6 +67,7 @@ void bacaSensor() {
   }
 }
 
+/* Kondisi Lurus */
 void pid() {
   errorDulu = error;
   error = setPoint - sensor;
@@ -76,8 +81,6 @@ void pid() {
   prosesKi = prosesKi + (Ki * error * deltaT);
   ePID = (Kp * error) + prosesKi + ((Kd * deltaE) / deltaT);
 }
-
-
 void maju() {
   pwm1 = kecepatan + ((ePID * kecepatan) / 20);
   pwm2 = kecepatan - ((ePID * kecepatan) / 20);
